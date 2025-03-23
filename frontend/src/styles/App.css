@@ -1,0 +1,13 @@
+.app {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .main-content {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+  }
+  
+  /* Remove conflicting card styles since we're using Tailwind */
