@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
+import api from "./utils/api";
 import Button from "./components/Button";
 import { Card } from "./components/Card";
 import { Upload, Loader2, Mic } from "lucide-react";
@@ -19,7 +19,7 @@ function App() {
 
   const pollTranscription = async (transcriptId) => {
     try {
-      const response = await axios.get(`http://localhost:3001/transcript/${transcriptId}`);
+      const response = await api.get(`/transcript/${transcriptId}`);
       if (response.data.status === "completed") {
         setTranscript(response.data.text);
         setStatus(null);
@@ -56,7 +56,7 @@ function App() {
       formData.append('audio', file);
       
       try {
-        const response = await axios.post('http://localhost:3001/process', formData);
+        const response = await api.post('/process', formData);
         if (response.data.transcript_id) {
           pollTranscription(response.data.transcript_id);
         }
