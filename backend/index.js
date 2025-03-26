@@ -14,7 +14,7 @@ const { createClient } = require("@supabase/supabase-js");
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: true,  // Reflects the origin of the request
+  origin: true,
   credentials: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
